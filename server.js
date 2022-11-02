@@ -1,13 +1,14 @@
 var express = require('express');
 var app = express();
 
-// to connect css file
+// to connect css & js files
 var path = require('path');
-app.use(express.static(path.join(__dirname, 'styles')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // to display images
 app.use(express.static('public')); 
 app.use('/images', express.static('images'));
+
 
 // app.get('/', function (req, res) {
 //   res.send('/index.html');

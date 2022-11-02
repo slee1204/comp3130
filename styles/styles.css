@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 32px;
   color: #f1f1f1;
   margin: 0;
 }
@@ -38,6 +38,8 @@ h3 {
 .textcont {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {

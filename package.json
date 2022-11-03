@@ -20,6 +20,7 @@
   "homepage": "https://github.com/slee1204/comp3130#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "font-awesome": "^4.7.0",
     "nodemon": "^2.0.20"
   }
 }

@@ -33,17 +33,20 @@ function loadPage() {
   button.addEventListener("click", function () {
     changePage(1);
   });
+  // newButton.addEventListener("click", function () {
+  //   changePage(pageNum);
+  // });
 };
 
 function previousPage() {
-  newButton.innerText = "Back"
+  newButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true" /> Back'
   newButton.addEventListener("click", function () {
-    changePage(pageNum - 1)
+    changePage(1)
   });
 };
 
 function nextPage() {
-  button.innerText = "Continue"
+  button.innerHTML = 'Continue <i class="fa fa-chevron-right" aria-hidden="true" />'
   button.addEventListener("click", function () {
     changePage(pageNum + 1)
   });

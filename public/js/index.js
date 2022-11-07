@@ -5,7 +5,7 @@ var button = document.querySelector(".btn");
 var input = document.querySelectorAll("input");
 var container = document.querySelector("div");
 var icon = document.createElement("i");
-var backButton = document.querySelector(".hidden");
+var backButton = document.querySelector(".btnhidden");
 const body = document.querySelector("body");
 var p = document.createElement("p");
 var pageNum = 1;
@@ -75,16 +75,16 @@ function changePage(pageNum) {
   var signName = signInput.value;
 
   /* BACKBUTTON */
-  if(backButton.classList.contains("hidden")){
-    backButton.classList.replace("hidden","back");
+  if(backButton.classList.contains("btnhidden")){
+    backButton.classList.replace("btnhidden","back");
   } else {
-    backButton.classList.replace("back","hidden");
+    backButton.classList.replace("back","btnhidden");
   }
 
   if (pageNum === 1) {
     
     /* Hide backButton */
-    backButton.classList.replace("back","hidden");
+    backButton.classList.replace("back","btnhidden");
     
     changeText("Enter Your Name");
 

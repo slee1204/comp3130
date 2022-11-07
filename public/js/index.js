@@ -87,16 +87,28 @@ function changePage(pageNum) {
     backButton.classList.replace("back","hidden");
     
     changeText("Enter Your Name");
-    input.setAttribute("type", "text");
-    document.querySelector("form").appendChild(input);
+
+    /* NAME INPUT */
+    nameInput.setAttribute("type", "text");
+    nameInput.classList.remove("hidden");
+    // input.setAttribute("class", "username");
+    // document.querySelector("form").appendChild(input);
     document.querySelector(".inputcont").style.display = "flex";
     nextPage();
+
   };
 
   if (pageNum === 2) {
+    /* NAME INPUT */
+    nameInput.classList.add("hidden");
+
+    /* SIGN INPUT */
+    signInput.setAttribute("type", "date");
+    signInput.classList.remove("hidden");
+
     changeText("Select your Date of Birth");
-    input.setAttribute("type", "date");
-    input.classList.add("date");
+    // input.setAttribute("type", "date");
+    // input.classList.replace("username","date");
     previousPage();
     button.addEventListener("click", function () {
       showResults();

@@ -1,11 +1,11 @@
 var h1 = document.querySelector("h1");
 var h2 = document.createElement("h2");
 var img = document.createElement("img");
-var button = document.querySelector("button");
+var button = document.querySelector(".btn");
 var input = document.createElement("input");
 var container = document.querySelector("div");
 var icon = document.createElement("i");
-var newButton = document.createElement("button");
+var backButton = document.querySelector(".hidden");
 const body = document.querySelector("body");
 var p = document.createElement("p");
 var pageNum = 1;
@@ -39,8 +39,8 @@ function loadPage() {
 };
 
 function previousPage() {
-  newButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true" /> Back'
-  newButton.addEventListener("click", function () {
+  backButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i> Back'
+  backButton.addEventListener("click", function () {
     changePage(1)
   });
 };
@@ -56,7 +56,7 @@ function backToMain() {
   button.classList.add("home");
   button.innerHTML = "Back to Main";
   button.classList.remove("continue");
-  newButton.remove();
+  backButton.remove();
   button.addEventListener("click", function () {
     history.go(0);
   });
@@ -67,8 +67,18 @@ function changePage(pageNum) {
   h2.remove();
   button.classList.remove("begin");
   button.classList.add("continue");
+  
+  /* backButton toggle */
+  if(backButton.classList.contains("hidden")){
+    backButton.classList.replace("hidden","back");
+  } else {
+    backButton.classList.replace("back","hidden");
+  }
 
   if (pageNum === 1) {
+    /* Hide backButton*/
+    backButton.classList.replace("back","hidden");
+    
     changeText("Enter Your Name");
     input.setAttribute("type", "text");
     document.querySelector("form").appendChild(input);
@@ -80,13 +90,7 @@ function changePage(pageNum) {
     changeText("Select your Date of Birth");
     input.setAttribute("type", "date");
     input.classList.add("date");
-
-    document.querySelector(".btncont").appendChild(newButton);
-    let theFirstBtn = document.querySelector(".btncont").firstChild;
-    newButton.classList.add("back");
-    document.querySelector(".btncont").insertBefore(newButton, theFirstBtn);
     previousPage();
-
     button.addEventListener("click", function () {
       showResults();
       backToMain();

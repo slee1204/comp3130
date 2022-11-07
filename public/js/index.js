@@ -111,16 +111,15 @@ function changePage(pageNum) {
     // input.classList.replace("username","date");
     previousPage();
     button.addEventListener("click", function () {
-      showResults();
+      showResults(userName,signName);
       backToMain();
     });
+
+    console.log(userName,signName);
   };
 };
 
-function showResults() {
-
-  var userName = "name";
-  var signName = "signName";
+function showResults(userName,signName) {
 
   changeText("Hi " + userName + ", " + "You are a " + signName);
 

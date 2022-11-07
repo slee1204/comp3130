@@ -102,6 +102,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #f1f1f1;
 }
 
+button.hidden {
+  display: none;
+}
+
 button.continue,
 button.back {
   color: #f1f1f1;

@@ -68,7 +68,13 @@ function changePage(pageNum) {
   button.classList.remove("begin");
   button.classList.add("continue");
   
-  /* backButton toggle */
+  /* INPUT VALUE*/
+  var nameInput = document.querySelector(".inputcont").firstElementChild;
+  var signInput = document.querySelector(".inputcont").lastElementChild;
+  var userName = nameInput.value;
+  var signName = signInput.value;
+
+  /* BACKBUTTON */
   if(backButton.classList.contains("hidden")){
     backButton.classList.replace("hidden","back");
   } else {
@@ -76,7 +82,8 @@ function changePage(pageNum) {
   }
 
   if (pageNum === 1) {
-    /* Hide backButton*/
+    
+    /* Hide backButton */
     backButton.classList.replace("back","hidden");
     
     changeText("Enter Your Name");

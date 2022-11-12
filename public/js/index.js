@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", loadFirstPage("index"));
 function changeText(h1Text, h2Text) {
   h1.innerText = h1Text;
   h2.innerText = h2Text;
-};
+}
 
 function addImg(src) {
   document.querySelector(".imgcont").appendChild(img);
   img.src = src;
-};
+}
 
 function backToMain() {
   button.classList.add("home");
@@ -32,21 +32,21 @@ function backToMain() {
   button.addEventListener("click", function () {
     history.go(0);
   });
-};
+}
 
 function previousPage() {
   backButton.addEventListener("click", function () {
-    page = (page + 1) - (page - 1)
+    page = page + 1 - (page - 1);
     display(page);
   });
-};
+}
 
 function nextPage() {
   button.addEventListener("click", function () {
-    page = page + 1
+    page = page + 1;
     display(page);
   });
-};
+}
 
 function loadFirstPage() {
   document.querySelector(".textcont").appendChild(h2);
@@ -60,21 +60,23 @@ function loadFirstPage() {
   button.addEventListener("click", function () {
     display(1);
   });
-};
+}
 
 function display(page) {
   h2.remove();
 
   button.classList.replace("begin", "continue");
-  button.innerHTML = 'Continue <i class="fa fa-chevron-right" aria-hidden="true" />'
+  button.innerHTML =
+    'Continue <i class="fa fa-chevron-right" aria-hidden="true" />';
   document.querySelector(".btncont").appendChild(backButton);
-  document.querySelector(".btncont").insertBefore(backButton, button)
+  document.querySelector(".btncont").insertBefore(backButton, button);
 
   backButton.classList.add("back");
-  backButton.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i> Back'
+  backButton.innerHTML =
+    '<i class="fa fa-chevron-left" aria-hidden="true"></i> Back';
   document.querySelector(".btncont").style.justifyContent = "space-between";
 
-  document.querySelector(".container").classList.replace('center', 'start');
+  document.querySelector(".container").classList.replace("center", "start");
 
   nextPage();
   previousPage();
@@ -84,22 +86,22 @@ function display(page) {
     input.setAttribute("type", "text");
     document.querySelector(".inputcont").classList.replace("hidden", "center");
     img.classList.add("hidden");
-  };
+  }
 
   if (page === 2) {
     changeText("Select your Date of Birth");
     input.setAttribute("type", "date");
     document.querySelector(".inputcont").classList.replace("hidden", "center");
     img.classList.add("hidden");
-  };
+  }
 
   if (page === 3) {
     img.classList.remove("hidden");
     addImg("/images/signs/leo.svg");
     // document.querySelector(".imgcont").after("textcont");
-    document.querySelector(".container").style.gap = "40px"
+    document.querySelector(".container").style.gap = "40px";
 
-    var div = document.createElement("div")
+    var div = document.createElement("div");
     document.querySelector(".container").appendChild(div);
 
     div.classList.add("zodiac-date");
@@ -111,31 +113,26 @@ function display(page) {
     document.querySelector(".inputcont").classList.replace("center", "hidden");
 
     document.querySelector(".container").appendChild(p);
-    p.innerText = 'Despite the "aqua" in its name, Aquarius is actually the last air sign of the zodiac. Innovative, progressive, and shamelessly revolutionary. Accordingly, Aquarius is the most humanitarian astrological sign.'
+    p.innerText =
+      'Despite the "aqua" in its name, Aquarius is actually the last air sign of the zodiac. Innovative, progressive, and shamelessly revolutionary. Accordingly, Aquarius is the most humanitarian astrological sign.';
     // showResults();
-
-  };
-};
-
-input.addEventListener("input", (event) => {
-  var userName = event.target.value
-  changeText("Hi " + userName + ", " + "You are a " + "signName");
-
-  console.log(userName)//Gets a property of the element
-})
-
-function storeInput() {
-
+  }
 }
 
+input.addEventListener("input", (event) => {
+  var userName = event.target.value;
+  changeText("Hi " + userName + ", " + "You are a " + "signName");
 
+  console.log(userName); //Gets a property of the element
+});
 
-
-
+const input = [];
+document.querySelector(".inputcont").addEventListener("keyup", storeInput);
+function storeInput(e) {
+  console.log(e.value);
+}
 
 // function changePage() {
-
-
 
 //   /* INPUT VALUE*/
 
@@ -150,7 +147,6 @@ function storeInput() {
 //     changeText("Enter Your Name");
 //     img.remove();
 
-
 //     /* Hide backButton */
 //     // backButton.classList.replace("back", "back");
 
@@ -164,7 +160,6 @@ function storeInput() {
 //     img.remove();
 //     changeText("Select your Date of Birth");
 //     input.setAttribute("type", "date");
-
 
 //     // nameInput.classList.add("hidden");
 //     // signInput.setAttribute("type", "date");
@@ -183,7 +178,6 @@ function storeInput() {
 //     div.classList.add("zodiac-date");
 //     div.innerText = "Jan 20 - Feb 18";
 
-
 //     document.querySelector(".container").classList.replace("center", "start");
 
 //     document.querySelector(".container").appendChild(p);
@@ -191,8 +185,6 @@ function storeInput() {
 //     showResults()
 //   }
 // };
-
-
 
 //         // <i class="fa fa-chevron-left" aria-hidden="true"></i>
 //         // <i class="fa fa-chevron-right" aria-hidden="true"></i>
